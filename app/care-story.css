@@ -1,0 +1,80 @@
+.care-story::after { content: ''; position: absolute; z-index: -2; inset: 0; pointer-events: none; background: #dcecf3; opacity: var(--protocol-tint, 0); }
+.care-story { position: relative; isolation: isolate; background: var(--page); }
+.care-story::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: #86cfe9; opacity: .42; mask: url('/dental-contours.svg') center / 100% 100% no-repeat; }
+.care-story .home-directions { background: transparent; }
+.care-story .home-directions::before { display: none; }
+.care-chapter-controls { display: none; }
+.care-story[data-care-mode='story'] > .home-directions,
+.care-story[data-care-mode='story'] > .home-protocol { padding-block: clamp(46px, 6vh, 72px) 98px; }
+.care-story[data-care-mode='story'] > .home-protocol { position: absolute; inset: 0; min-height: 0; }
+.care-story[data-care-mode='story'][data-care-context='services'] > .home-protocol,
+.care-story[data-care-mode='story'][data-care-context='protocol'] > .home-directions { visibility: hidden; opacity: 0; pointer-events: none; }
+.care-story[data-care-mode='story'] .protocol-composition { position: relative; height: var(--care-content-height); }
+.care-story[data-care-mode='story'] .protocol-layout { position: absolute; top: var(--care-body-y); inset-inline: 0; height: var(--care-body-height); }
+.care-story[data-care-mode='story'] .protocol-demo-note { position: absolute; top: calc(var(--care-footer-y) + 7px); inset-inline-start: 0; max-width: 64ch; margin: 0; }
+.care-story[data-care-mode='story'] .care-chapter-controls { position: absolute; z-index: 5; inset: auto var(--gutter) 20px; display: flex; align-items: center; justify-content: center; gap: 14px; }
+.care-chapter-controls button { background: transparent; padding: 10px 2px; min-height: 44px; font-size: 14px; color: var(--muted); transition: color 160ms ease; }
+.care-chapter-controls button[aria-pressed='true'] { color: var(--blue); text-decoration: underline; text-underline-offset: 7px; }
+.care-chapter-controls > span { width: 35px; height: 1px; background: #b5d8e5; }
+.protocol-heading { max-width: 27ch; font-size: clamp(42px, 4.3vw, 66px); line-height: .98; color: var(--ink); }
+.protocol-layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 1.1fr) minmax(0, 1fr); gap: clamp(16px, 2.4vw, 38px); align-items: stretch; margin-top: 0; }
+.protocol-side { display: grid; grid-template-rows: repeat(2, minmax(0, 1fr)); gap: 28px; min-width: 0; }
+.protocol-feature { position: relative; display: flex; flex-direction: column; min-width: 0; padding: 0; }
+.protocol-icon { position: absolute; top: 0; left: 0; color: var(--orange); }
+.protocol-feature h3 { min-height: 33px; padding-left: 43px; margin: 0 0 12px; font: 800 clamp(23px, 2.05vw, 31px)/1.05 'Roboto Condensed', sans-serif; letter-spacing: -.025em; }
+.protocol-feature p { margin: 0; max-width: 37ch; font-size: 16px; line-height: 1.5; color: var(--muted); }
+.protocol-details { align-self: flex-start; min-height: 32px; font-size: 13px; margin-top: auto; padding-block: 3px; gap: 15px; }
+.protocol-demo-note { font-size: 12px; line-height: 1.5; color: var(--muted); }
+.protocol-tooth-slot { min-width: 300px; height: 100%; pointer-events: none; }
+.care-story[data-care-mode='flow'] .protocol-heading { margin-bottom: 35px; }
+.care-story[data-care-mode='flow'] .protocol-layout { min-height: 460px; }
+.care-story[data-care-mode='flow'] .protocol-tooth-slot { height: 460px; }
+.care-story[data-care-mode='flow'] .protocol-demo-note { margin-top: 27px; max-width: 72ch; }
+@media (hover:hover) and (pointer:fine) {
+  .care-chapter-controls button:hover { color: var(--blue); }
+  .protocol-details:hover { text-decoration: underline; }
+}
+@media (min-width:981px) and (max-height:850px) {
+  .care-story[data-care-mode='story'] > .home-directions,
+  .care-story[data-care-mode='story'] > .home-protocol { padding-block: 34px 90px; }
+  .care-story[data-care-mode='story'] .directions-heading-row { margin-bottom: 27px; gap: 30px; }
+  .care-story[data-care-mode='story'] .directions-heading-row .home-display { font-size: clamp(48px, 4.4vw, 66px); }
+  .care-story[data-care-mode='story'] .directions-mission { margin-top: 14px; }
+  .care-story[data-care-mode='story'] .featured-services { --services-stage-height: 350px; }
+  .care-story[data-care-mode='story'] .services-tooth-slot { min-height: 350px; }
+  .protocol-heading { font-size: clamp(38px, 3.5vw, 50px); max-width: 30ch; }
+  .protocol-side { gap: 23px; }
+  .protocol-feature h3 { font-size: 23px; margin-bottom: 9px; }
+  .protocol-feature p { font-size: 14px; line-height: 1.45; }
+  .protocol-details { font-size: 12px; min-height: 29px; }
+}
+@media (max-width:980px) {
+  .protocol-heading { font-size: clamp(38px, 6.2vw, 58px); max-width: 26ch; }
+  .protocol-layout { grid-template-columns: minmax(0,1fr) minmax(0,1fr); grid-template-areas: 'tooth tooth' 'left right'; gap: 25px 22px; }
+  .protocol-side:first-child { grid-area: left; }
+  .protocol-side:last-child { grid-area: right; }
+  .protocol-side { grid-template-rows: none; gap: 30px; align-content: start; }
+  .care-story[data-care-mode='flow'] .protocol-tooth-slot { grid-area: tooth; justify-self: center; width: min(100%,460px); min-width: 0; height: 340px; }
+  .protocol-feature { padding-top: 18px; border-top: 1px solid #c4e0eb; }
+  .protocol-icon { top: 18px; }
+  .protocol-feature h3 { font-size: 25px; padding-left: 40px; }
+  .protocol-feature p { font-size: 15px; line-height: 1.55; }
+  .protocol-details { margin-top: 13px; min-height: 38px; }
+}
+@media (max-width:650px) {
+  .protocol-heading { font-size: clamp(36px, 9.4vw, 48px); }
+  .protocol-layout { gap: 22px 18px; }
+  .protocol-feature h3 { font-size: 23px; padding-left: 0; padding-top: 40px; }
+  .protocol-feature p { font-size: 15px; }
+  .care-story[data-care-mode='flow'] .protocol-tooth-slot { height: 310px; }
+}
+@media (max-width:355px) {
+  .protocol-layout { grid-template-columns: 1fr; grid-template-areas: 'tooth' 'left' 'right'; }
+  .care-story[data-care-mode='flow'] .protocol-tooth-slot { height: 285px; }
+  .protocol-feature h3 { padding-left: 43px; padding-top: 0; }
+  .protocol-feature p { max-width: none; }
+}
+@media (prefers-reduced-motion:reduce) {
+  .care-chapter-controls button, .protocol-details { transition: none; }
+}
+

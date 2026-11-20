@@ -1,0 +1,56 @@
+{
+  "asset": "patient-atlas.webp",
+  "useCase": "photorealistic-natural",
+  "mode": "built-in",
+  "tool": "image_gen.imagegen",
+  "transparent_background": false,
+  "prompt": "Use case: photorealistic-natural.\nAsset type: production patient portrait atlas for a fictional dental clinic website, completely fictional synthetic adult people.\nPrimary request: Create ONE landscape image, aspect ratio exactly 3:2, preferably 1536x1024, with a strict uniform 3-column by 2-row grid of six independent studio portraits. Exactly six equal square cells, edge to edge, no gutters or borders. Grid divisions at x=1/3, x=2/3, y=1/2. Each person's head and shoulders must be fully contained and centered inside their own cell, never overlapping neighboring cells. Generous safe space above and around all hair for circular avatar crops.\nSubjects in exact reading order:\nTop left: Maria, age 34, fictional woman with dark brunette bob haircut, light knit sweater.\nTop middle: Alexey, age 39, fictional man with dark hair and light stubble, blue casual shirt.\nTop right: Olga, age 46, fictional woman with soft dark blonde hair, fine thin eyeglasses, gray blouse.\nBottom left: Denis, age 32, fictional man with short slightly curly hair, dark crewneck.\nBottom middle: Irina, age 55, fictional woman with chestnut hair mixed with gray, pale blue blouse.\nBottom right: Roman, age 54, fictional man with salt-and-pepper hair, beige cardigan.\nStyle: credible natural photographic portraits, ordinary friendly patients, subtle relaxed natural smiles, distinct facial structures and believable proportions, visible natural skin texture and age appropriate features, no plastic retouching. Casual everyday clothes. Each person looking toward camera. Similar scale and straight-on head-and-shoulders framing across all six cells.\nScene/backdrop: uniform light neutral warm gray studio background in every cell, soft diffuse studio light, calm honest approachable mood.\nConstraints: six unrelated completely invented people, no real individuals or celebrity likeness. All six full heads and hair visible with surrounding air. This is six separate portraits in a mechanically precise contact-sheet grid, NOT a group photo, NOT an overlapping collage. Exactly three columns and two rows. No text, names, letters, logos, watermarks, frames, dividing lines, medical equipment, scrubs, white coats, dental tools or clinic objects. No additional people.",
+  "source": "C:/Users/Дмитрий/.codex/generated_images/01a1f5c3-ff5f-7530-9bee-f1eeb52ea4ed/exec-ec7f1fdf-ee66-4a27-b505-e223c42fd7dd.png",
+  "subjects": [
+    {
+      "row": 0,
+      "column": 0,
+      "name": "Мария",
+      "age": 34
+    },
+    {
+      "row": 0,
+      "column": 1,
+      "name": "Алексей",
+      "age": 39
+    },
+    {
+      "row": 0,
+      "column": 2,
+      "name": "Ольга",
+      "age": 46
+    },
+    {
+      "row": 1,
+      "column": 0,
+      "name": "Денис",
+      "age": 32
+    },
+    {
+      "row": 1,
+      "column": 1,
+      "name": "Ирина",
+      "age": 55
+    },
+    {
+      "row": 1,
+      "column": 2,
+      "name": "Роман",
+      "age": 54
+    }
+  ],
+  "fictional": true,
+  "visualVerification": "Opened generated source. Confirmed six individual fictional adult portraits, strict edge-to-edge 3 columns by 2 rows, complete heads and hair, no text, no medical props.",
+  "conversion": {
+    "library": "sharp",
+    "operations": [
+      "webp quality 82 effort 6"
+    ],
+    "crop": false
+  }
+}

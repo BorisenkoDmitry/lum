@@ -1,0 +1,24 @@
+{
+  "name": "dental-tooth-next",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 127.0.0.1 --port 3000",
+    "build": "next build",
+    "start": "next start --hostname 127.0.0.1 --port 3000"
+  },
+  "dependencies": {
+    "@fontsource/caveat": "5.3.0",
+    "@fontsource/inter": "5.2.8",
+    "@fontsource/lobster": "5.3.0",
+    "@fontsource/manrope": "5.3.0",
+    "@fontsource/roboto-condensed": "5.3.0",
+    "@fontsource/unbounded": "^5.3.0",
+    "@react-three/fiber": "9.5.0",
+    "gsap": "3.15.1",
+    "next": "16.4.6",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "three": "0.183.2"
+  }
+}

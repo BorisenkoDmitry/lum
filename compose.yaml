@@ -1,0 +1,37 @@
+name: lum
+
+services:
+  web:
+    image: lum:${LUM_IMAGE_TAG:-local}
+    build:
+      context: .
+      args:
+        NEXT_PUBLIC_SITE_URL: https://lum.dmitriy-borisenko.ru
+    restart: unless-stopped
+    networks:
+      - coolify
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r => { if (!r.ok) process.exit(1) }).catch(() => process.exit(1))"]
+      interval: 15s
+      timeout: 5s
+      start_period: 15s
+      retries: 4
+    labels:
+      traefik.enable: "true"
+      traefik.docker.network: coolify
+      traefik.http.routers.lum-http.entrypoints: http
+      traefik.http.routers.lum-http.rule: Host(`lum.dmitriy-borisenko.ru`)
+      traefik.http.routers.lum-http.service: lum
+      traefik.http.routers.lum-http.middlewares: lum-redirect
+      traefik.http.middlewares.lum-redirect.redirectscheme.scheme: https
+      traefik.http.middlewares.lum-redirect.redirectscheme.permanent: "true"
+      traefik.http.routers.lum-https.entrypoints: https
+      traefik.http.routers.lum-https.rule: Host(`lum.dmitriy-borisenko.ru`)
+      traefik.http.routers.lum-https.service: lum
+      traefik.http.routers.lum-https.tls: "true"
+      traefik.http.routers.lum-https.tls.certresolver: letsencrypt
+      traefik.http.services.lum.loadbalancer.server.port: "3000"
+
+networks:
+  coolify:
+    external: true

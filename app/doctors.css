@@ -1,0 +1,208 @@
+.home-doctors {
+  --section-space: clamp(42px, 5.7svh, 66px);
+  min-height: 100svh;
+  background: #edf8fc;
+}
+
+.home-doctors::before {
+  content: '';
+  position: absolute;
+  inset: -15%;
+  z-index: -1;
+  pointer-events: none;
+  background: white;
+  mask: url('/dental-contours.svg') center / cover no-repeat;
+  opacity: .7;
+  transform: translateY(calc(var(--doctors-depth, 0px) * -2));
+}
+
+.doctors-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: clamp(27px, 4svh, 43px);
+}
+
+.doctors-heading-row .home-display {
+  font-size: clamp(65px, 7.4vw, 108px);
+  color: var(--ink);
+}
+
+.doctors-heading-row .home-intro-text {
+  max-width: 31ch;
+  margin-bottom: 3px;
+}
+
+.doctors-lineup {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.5vw, 38px);
+}
+
+.doctor-profile { min-width: 0; }
+
+.doctor-portrait {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  /* Keep the body in frame as the desktop columns get wider. */
+  aspect-ratio: 4 / 5;
+  height: auto;
+  border-radius: 23px;
+  background: #d4edf8;
+}
+
+.doctor-profile--mikhail .doctor-portrait { background: #e1f3f9; }
+.doctor-profile--anna .doctor-portrait { background: #cdebf8; }
+
+.doctor-photo-motion {
+  --portrait-x: 0px;
+  --portrait-y: 0px;
+  position: absolute;
+  inset: 0;
+  transform: translate3d(var(--portrait-x), calc(var(--portrait-y) + var(--doctors-depth, 0px) * var(--portrait-depth, 1)), 0) scale(1.13);
+}
+
+.doctor-profile--mikhail { --portrait-depth: -.6; }
+.doctor-profile--anna { --portrait-depth: .7; }
+
+.doctor-portrait[data-parallax] .doctor-photo-motion { will-change: transform; }
+.doctor-photo { object-fit: cover; object-position: 50% 0%; }
+
+.doctor-experience {
+  position: absolute;
+  z-index: 1;
+  left: 16px;
+  bottom: 16px;
+  display: inline-flex;
+  align-items: center;
+  min-height: 34px;
+  max-width: calc(100% - 32px);
+  padding: 8px 13px;
+  border-radius: 20px;
+  background: rgb(255 255 255 / 92%);
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.35;
+  font-weight: 500;
+}
+
+.doctor-details { padding: 20px 2px 0; }
+
+.doctor-details h3 {
+  margin: 0;
+  font: 800 clamp(27px, 2.6vw, 38px)/1.05 'Roboto Condensed', Impact, sans-serif;
+  letter-spacing: -0.035em;
+}
+
+.doctor-specialty {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.doctor-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px 17px;
+  margin-top: 19px;
+}
+
+.doctor-booking {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 45px;
+  gap: clamp(18px, 2.1vw, 32px);
+  padding: 12px 18px;
+  border-radius: 25px;
+  background: var(--orange);
+  color: var(--white);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  transition: background 180ms ease;
+}
+
+.doctor-booking:hover { background: #e94716; }
+.doctor-booking svg { flex: none; }
+
+.doctor-biography {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 10px 5px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.doctor-biography:hover { color: var(--blue); text-decoration: underline; text-underline-offset: 5px; }
+
+.doctors-demo-note {
+  margin-top: clamp(25px, 4svh, 43px);
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+@media (min-width: 981px) and (max-height: 760px) {
+  .home-doctors { --section-space: 39px; }
+  .doctors-heading-row .home-display { font-size: 77px; }
+  .doctors-heading-row { margin-bottom: 27px; }
+  .doctor-details { padding-top: 16px; }
+  .doctor-actions { margin-top: 14px; }
+  .doctors-demo-note { margin-top: 25px; }
+}
+
+@media (max-width: 980px) {
+  .home-doctors { --section-space: 54px; }
+  .doctors-heading-row { align-items: start; gap: 28px; }
+  .doctors-heading-row .home-display { font-size: clamp(60px, 8.4vw, 82px); }
+  .doctors-heading-row .home-intro-text { max-width: 25ch; font-size: 15px; }
+  .doctors-lineup { gap: 17px; }
+  .doctor-portrait { aspect-ratio: auto; height: 33vw; min-height: 230px; }
+  .doctor-experience { left: 12px; bottom: 12px; padding: 7px 10px; max-width: calc(100% - 24px); }
+  .doctor-details { padding-top: 17px; }
+  .doctor-details h3 { max-width: 12ch; font-size: 31px; }
+  .doctor-specialty { margin-top: 7px; min-height: 40px; font-size: 14px; }
+  .doctor-actions { margin-top: 8px; gap: 3px 10px; }
+  .doctor-booking { gap: 12px; padding-inline: 14px; font-size: 13px; }
+  .doctor-biography { font-size: 13px; }
+}
+
+@media (max-width: 650px) {
+  .home-doctors { --section-space: 42px; }
+  .doctors-heading-row { display: block; margin-bottom: 25px; }
+  .doctors-heading-row .home-display { font-size: clamp(49px, 11.8vw, 66px); }
+  .doctors-heading-row .home-intro-text { max-width: 34ch; margin-top: 17px; font-size: 15px; }
+  .doctors-lineup { grid-template-columns: 1fr; gap: 18px; }
+  .doctor-profile { display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr); gap: 19px; align-items: center; }
+  .doctor-portrait { height: 207px; min-height: 0; border-radius: 18px; }
+  .doctor-photo { object-position: 50% 28%; }
+  .doctor-experience { left: 9px; bottom: 10px; max-width: calc(100% - 18px); min-height: 30px; padding: 6px 9px; font-size: 11px; }
+  .doctor-details { padding: 0; }
+  .doctor-details h3 { max-width: 11ch; font-size: 30px; line-height: 1.02; }
+  .doctor-specialty { min-height: 0; margin-top: 9px; font-size: 14px; }
+  .doctor-actions { margin-top: 16px; gap: 0 8px; }
+  .doctor-booking { min-height: 42px; padding: 10px 13px; gap: 17px; }
+  .doctor-booking svg { width: 16px; height: 16px; }
+  .doctor-biography { min-height: 40px; padding: 9px 2px; }
+  .doctors-demo-note { margin-top: 25px; max-width: 36ch; font-size: 12px; }
+}
+
+@media (max-width: 355px) {
+  .doctor-profile { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: 14px; }
+  .doctor-details h3 { font-size: 26px; }
+  .doctor-portrait { height: 199px; }
+  .doctor-specialty { font-size: 13px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .doctor-photo-motion { transform: none; }
+  .doctor-booking { transition: none; }
+}

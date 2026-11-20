@@ -1,0 +1,121 @@
+/* Shared roles for the content sections. Hero/header and decorative numerals
+   deliberately keep their approved typography and do not consume these tokens. */
+:root {
+  --type-section: clamp(40px, 4.45vw, 68px);
+  --type-card: clamp(22px, 1.9vw, 28px);
+  --type-body: 16px;
+  --type-secondary: 14px;
+  --type-caption: 12px;
+  --type-price: 18px;
+  --type-section-leading: 1.04;
+  --type-card-leading: 1.18;
+  --type-body-leading: 1.55;
+  --type-secondary-leading: 1.5;
+}
+
+/* One H2 scale for services, protocol, doctors, reviews, booking, and FAQ.
+   The ID scope also supersedes old language/short-height size exceptions. */
+#home .home-screen h2,
+body .catalog-dialog .catalog-intro h2,
+body .information-dialog .information-content h2 {
+  font: 800 var(--type-section)/var(--type-section-leading) 'Roboto Condensed', Impact, sans-serif;
+  letter-spacing: -.04em;
+}
+
+#home .home-screen :is(.featured-service-title, .featured-catalog-title),
+#home .home-screen .featured-service-card .featured-service-title,
+#home .home-screen .protocol-feature h3,
+#home .home-screen .doctor-details h3,
+#home .home-screen .appointment-form h3,
+#home .home-screen .home-question h3 button {
+  font: 800 var(--type-card)/var(--type-card-leading) 'Roboto Condensed', Impact, sans-serif;
+  letter-spacing: -.025em;
+}
+
+#home .home-screen :is(.home-intro-text, .directions-mission, .appointment-description, .reviews-story-introduction),
+#home .home-screen .directions-introduction > p,
+#home .home-screen .protocol-feature > p,
+#home .home-screen .home-answer-content p,
+#home .home-screen .patient-review-card blockquote p,
+#home .home-screen .reviews-story-invitation > p,
+body .information-dialog .information-content > p:not(.demo-note),
+body .catalog-dialog .catalog-bottom > p,
+body .catalog-dialog .no-results {
+  font: 400 var(--type-body)/var(--type-body-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: -.015em;
+}
+
+#home .home-screen .patient-review-name {
+  font: 500 var(--type-body)/1.4 'Inter', Arial, sans-serif;
+  letter-spacing: -.015em;
+}
+
+#home .home-screen :is(.doctor-specialty, .questions-signoff > p),
+#home .home-screen .reviews-chapter-number > p,
+body .catalog-dialog .catalog-groups summary small {
+  font: 400 var(--type-secondary)/var(--type-secondary-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+#home .home-screen :is(.featured-services-note, .featured-services-position, .protocol-demo-note, .doctors-demo-note, .reviews-story-demo, .patient-review-treatment, .appointment-field-hint, .appointment-field-error, .appointment-demo-note),
+body .catalog-dialog .search-status,
+body .information-dialog .information-content .demo-note,
+.site-footer > p {
+  font: 400 var(--type-caption)/var(--type-secondary-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+#home .home-screen .doctor-experience {
+  font: 500 var(--type-caption)/var(--type-secondary-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+#home .home-screen .featured-service-price {
+  font: 500 var(--type-price)/1.3 'Inter', Arial, sans-serif;
+  letter-spacing: -.025em;
+}
+
+#home .home-screen :is(.primary-button, .text-button, .doctor-booking, .doctor-biography, .appointment-submit, .featured-catalog-link),
+#home .home-screen .reviews-story-invitation > a,
+#home .care-chapter-controls button,
+body .catalog-dialog .catalog-shortcuts button,
+body .catalog-dialog .catalog-services button,
+body .catalog-dialog .catalog-bottom .primary-button,
+body .information-dialog .information-content :is(.primary-button, .text-button) {
+  font: 500 var(--type-secondary)/1.4 'Inter', Arial, sans-serif;
+  letter-spacing: -.01em;
+}
+
+#home .home-screen .appointment-field label {
+  font: 500 var(--type-secondary)/1.4 'Inter', Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+#home .home-screen .appointment-field input,
+body .catalog-dialog .search-field input {
+  font: 400 var(--type-body)/var(--type-body-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+body .catalog-dialog .catalog-groups summary > span:first-child {
+  font: 500 var(--type-card)/var(--type-card-leading) 'Inter', Arial, sans-serif;
+  letter-spacing: -.025em;
+}
+
+/* Chapter labels are navigation, distinct from the numbered display itself. */
+#home .home-screen .reviews-chapter-number h3 {
+  font: 500 var(--type-secondary)/1.4 'Inter', Arial, sans-serif;
+  letter-spacing: -.015em;
+}
+
+@media (min-width: 981px) and (max-height: 850px) {
+  :root { --type-section: clamp(40px, 4.45vw, 60px); }
+}
+
+@media (max-width: 650px) {
+  :root {
+    --type-section: clamp(34px, 8.8vw, 44px);
+    --type-card: 22px;
+  }
+  #home .home-screen .reviews-chapter-number h3 { font-size: var(--type-caption); }
+}

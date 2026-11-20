@@ -1,0 +1,10 @@
+**
+!package.json
+!package-lock.json
+!next.config.mjs
+!app/
+!app/**
+!components/
+!components/**
+!public/
+!public/**

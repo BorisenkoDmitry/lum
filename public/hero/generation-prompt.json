@@ -1,0 +1,6 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "prompt": "Generate ONLY a website background photograph, no website UI. Ultra softly out-of-focus contemporary premium dental clinic interior, extremely defocused atmospheric blue glass walls, translucent vertical glass partitions at both edges, faint blurred dental chair shape low right and soft horizontal worktop low left, calm very airy cyan mist and pale icy blue diffuse illumination in the center, slightly darker muted steel blue upper corners. Strong diffuse blue monochromatic color grading, subtle volumetric window light. Broad perfectly uncluttered empty CENTER for a large 3D tooth composited separately. Background should feel expensive photorealistic but so blurred that no medical instruments are identifiable. Palette #6c9ebd #91c5df #b4e0ef and soft pale blue. No tooth, no people, no text, no letters, no logos, no graphics, no sharp objects, no cards. Landscape 16:10 composition, high quality soft cinematic atmospheric dental clinic photography.",
+  "source": "exec-0a75bbd3-33f8-4ffe-a4c6-850421b7e586.png"
+}
